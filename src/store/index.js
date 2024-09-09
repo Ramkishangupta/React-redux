@@ -5,6 +5,12 @@ const Initial_Value={
 }
 
 const counterReducer=(store=Initial_Value,action)=>{
+    if(action.type==='INCREMENT'){
+        return {counter:store.counter+1}
+    }
+    else if(action.type==='DECREMENT'){
+        return {counter:store.counter-1}
+    }
     return store;
 }
 

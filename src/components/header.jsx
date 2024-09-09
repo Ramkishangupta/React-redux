@@ -3,7 +3,7 @@ import Buttons from './Buttons';
 const Header=()=>{
     return(
         <>
-    <div class="py-2 text-center">
+    <div className="py-2 text-center">
       <h2>Checkout form</h2>
       <DisplayCounter></DisplayCounter>
       <Buttons></Buttons>
