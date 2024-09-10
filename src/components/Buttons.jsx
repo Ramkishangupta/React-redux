@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
-
+import { counterActions } from '../store';
 const CounterComponent = () => {
   const dispatch = useDispatch();
   
@@ -10,18 +10,20 @@ const CounterComponent = () => {
 
   // Handle addition using the value from the 'add' input
   const handleAdd = () => {
-    dispatch({
-      type: "Add",
-      payload: { num: parseInt(addInputElement.current.value) }
-    });
+    // dispatch({
+    //   type: "Add",
+    //   payload: { num: parseInt(addInputElement.current.value) }
+    // });
+    dispatch(counterActions.add());
   };
 
   // Handle subtraction using the value from the 'subtract' input
   const handleSubs = () => {
-    dispatch({
-      type: "Subs",
-      payload: { num: parseInt(subsInputElement.current.value) }
-    });
+    // dispatch({
+    //   type: "Subs",
+    //   payload: { num: parseInt(subsInputElement.current.value) }
+    // });
+    dispatch(counterActions.subs());
   };
 
   return (
@@ -30,7 +32,7 @@ const CounterComponent = () => {
       <button
         type="button"
         className="btn btn-primary button-gap"
-        onClick={() => dispatch({ type: "INCREMENT" })}
+        onClick={() => dispatch(counterActions.increment())}
       >
         +1
       </button>
@@ -38,9 +40,9 @@ const CounterComponent = () => {
       <button
         type="button"
         className="btn btn-success button-gap"
-        onClick={() => dispatch({ type: "DECREMENT" })}
+        onClick={() => dispatch(counterActions.subs())}
       >
-        -1
+       -1 
       </button>
 
       {/* Input for Addition */}
@@ -64,7 +66,6 @@ const CounterComponent = () => {
         Add
       </button>
 
-      {/* Input for Subtraction */}
       <input
         type="number"
         placeholder="subtraction"
